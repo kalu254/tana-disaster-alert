@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class ChiefEntity {
 
     @Id
-    @Column
-    private String chief_service_id;
+    @Column(name = "chief_service_id")
+    private String id;
     @Column
     private String f_name;
     @Column
@@ -25,12 +25,12 @@ public class ChiefEntity {
     public ChiefEntity() {
     }
 
-    public String getChief_service_id() {
-        return chief_service_id;
+    public String getId() {
+        return id;
     }
 
-    public void setChief_service_id(String chief_service_id) {
-        this.chief_service_id = chief_service_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getF_name() {
@@ -84,7 +84,7 @@ public class ChiefEntity {
     @Override
     public String toString() {
         return "Chief{" +
-            "chief_service_id='" + chief_service_id + '\'' +
+            "chief_service_id='" + id + '\'' +
             ", fname='" + f_name + '\'' +
             ", lname='" + l_name + '\'' +
             ", email_address='" + email_address + '\'' +

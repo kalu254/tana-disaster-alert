@@ -9,7 +9,7 @@ public interface ChiefService {
 
     List<ChiefEntity> findAll();
 
-    Optional<ChiefEntity> findById(int id);
+    Optional<ChiefEntity> findById(String id);
 
     void addChief(ChiefEntity chiefEntity);
 

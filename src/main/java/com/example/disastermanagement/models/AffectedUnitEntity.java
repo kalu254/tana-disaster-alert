@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class AffectedUnitEntity {
 
     @Id
-    @Column
-    private int id_no;
+    @Column(name = "id_no")
+    private int id;
     @Column
     private String f_name;
     @Column
@@ -32,12 +32,12 @@ public class AffectedUnitEntity {
     }
 
 
-    public int getId_no() {
-        return id_no;
+    public int getId() {
+        return id;
     }
 
-    public void setId_no(int id_no) {
-        this.id_no = id_no;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getF_name() {
@@ -115,7 +115,7 @@ public class AffectedUnitEntity {
     @Override
     public String toString() {
         return "AffectedUnit{" +
-            "house_hold_head_id=" + id_no +
+            "house_hold_head_id=" + id +
             ", fname='" + f_name + '\'' +
             ", lname='" + l_name + '\'' +
             ", occupants=" + occupants +

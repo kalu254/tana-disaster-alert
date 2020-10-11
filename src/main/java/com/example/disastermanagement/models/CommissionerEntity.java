@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class CommissionerEntity {
 
     @Id
-    @Column
-    private String commissioner_service_id;
+    @Column(name = "commissioner_service_id")
+    private String id;
     @Column
     private String f_name;
     @Column
@@ -21,20 +21,21 @@ public class CommissionerEntity {
     @Column
     private String county;
     @Column
-    private String Phone_number;
+    private int Phone_number;
     @Column
     private String password;
 
     public CommissionerEntity() {
     }
 
-    public String getCommissioner_service_id() {
-        return commissioner_service_id;
+    public String getId() {
+        return id;
     }
 
-    public void setCommissioner_service_id(String commissioner_service_id) {
-        this.commissioner_service_id = commissioner_service_id;
+    public void setId(String id) {
+        this.id = id;
     }
+
 
     public String getF_name() {
         return f_name;
@@ -68,11 +69,11 @@ public class CommissionerEntity {
         this.county = county;
     }
 
-    public String getPhone_number() {
+    public int getPhone_number() {
         return Phone_number;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhone_number(int phone_number) {
         Phone_number = phone_number;
     }
 
@@ -87,7 +88,7 @@ public class CommissionerEntity {
     @Override
     public String toString() {
         return "Commissioner{" +
-            "commissioner_service_id='" + commissioner_service_id + '\'' +
+            "commissioner_service_id='" + id + '\'' +
             ", fname='" + f_name + '\'' +
             ", lname='" + l_name + '\'' +
             ", email_address='" + email_address + '\'' +

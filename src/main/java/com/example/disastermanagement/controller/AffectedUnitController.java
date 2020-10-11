@@ -29,7 +29,7 @@ public class AffectedUnitController {
         return affectedUnitService.findById(id);
     }
 
-    @PostMapping("/report_disaster")
+    @PostMapping("/report-affected-units")
     public void reportDisaster(@RequestBody AffectedUnitEntity affectedUnitEntity){
         affectedUnitService.addAffectedUnit(affectedUnitEntity);
     }

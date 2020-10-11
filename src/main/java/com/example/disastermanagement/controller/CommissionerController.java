@@ -25,7 +25,7 @@ public class CommissionerController {
     }
 
     @GetMapping("/commissioners/{id}")
-    public Optional<CommissionerEntity> getCommissionerById(@PathVariable int id){
+    public Optional<CommissionerEntity> getCommissionerById(@PathVariable String id){
         return commissionerService.findById(id);
     }
 
@@ -35,8 +35,8 @@ public class CommissionerController {
     }
 
     @PostMapping("update-commissioners/{id}")
-    public void updateCommissioner(@PathVariable int id, @RequestBody CommissionerEntity commissionerEntity){
-        commissionerService.updateCommissioner(id,commissionerEntity);
+    public void updateCommissioner( @RequestBody CommissionerEntity commissionerEntity){
+        commissionerService.updateCommissioner(commissionerEntity);
     }
 
     @DeleteMapping("commissioners/{id}")

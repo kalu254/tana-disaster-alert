@@ -24,8 +24,8 @@ public class CommissionerServiceImpl implements CommissionerService {
     }
 
     @Override
-    public Optional<CommissionerEntity> findById(int id) {
-        return commissionerRepository.findById(id);
+    public Optional<CommissionerEntity> findById(String id) {
+        return commissionerRepository.findCommissionerById(id);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class CommissionerServiceImpl implements CommissionerService {
     }
 
     @Override
-    public void updateCommissioner(int id, CommissionerEntity commissionerEntity) {
-//        commissionerRepository.saveAndFlush(commissionerEntity)
+    public void updateCommissioner(CommissionerEntity commissionerEntity) {
+        commissionerRepository.saveAndFlush(commissionerEntity);
     }
 
     @Override

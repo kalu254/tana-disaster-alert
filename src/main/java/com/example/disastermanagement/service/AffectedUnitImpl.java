@@ -28,12 +28,12 @@ public class AffectedUnitImpl  implements AffectedUnitService{
 
     @Override
     public void addAffectedUnit(AffectedUnitEntity affectedUnitEntity) {
-        affectedUnitRepository.save(affectedUnitEntity);
+        affectedUnitRepository.saveAndFlush(affectedUnitEntity);
     }
 
     @Override
     public void updateAffectedUnit(int id, AffectedUnitEntity affectedUnitEntity) {
-        affectedUnitRepository.save(affectedUnitEntity);
+        affectedUnitRepository.saveAndFlush(affectedUnitEntity);
     }
 
     @Override

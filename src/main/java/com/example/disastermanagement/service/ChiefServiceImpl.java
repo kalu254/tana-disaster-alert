@@ -22,8 +22,8 @@ public class ChiefServiceImpl implements ChiefService{
     }
 
     @Override
-    public Optional<ChiefEntity> findById(int id) {
-        return chiefRepository.findById(id);
+    public Optional<ChiefEntity> findById(String id) {
+        return chiefRepository.findChiefById(id);
     }
 
     @Override

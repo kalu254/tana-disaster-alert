@@ -25,7 +25,7 @@ public class ChiefController {
     }
 
     @GetMapping("/chiefs/{id}")
-    public Optional<ChiefEntity> getChiefById(@PathVariable int id){
+    public Optional<ChiefEntity> getChiefById(@PathVariable String id){
         return chiefService.findById(id);
     }
 

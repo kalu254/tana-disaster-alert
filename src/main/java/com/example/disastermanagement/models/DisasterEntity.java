@@ -16,8 +16,8 @@ public class DisasterEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private int disaster_id;
+    @Column(name = "disaster_id")
+    private int id;
     @Column
     private LocalDate date_reported;
     @Column
@@ -43,7 +43,7 @@ public class DisasterEntity {
     }
 
     public int getDisaster_id() {
-        return disaster_id;
+        return id;
     }
 
 
@@ -122,7 +122,7 @@ public class DisasterEntity {
     @Override
     public String toString() {
         return "Disaster{" +
-            "disaster_id=" + disaster_id +
+            "disaster_id=" + id +
             ", date_reported=" + date_reported +
             ", disaster_type='" + disaster_type + '\'' +
             ", disaster_description='" + disaster_description + '\'' +

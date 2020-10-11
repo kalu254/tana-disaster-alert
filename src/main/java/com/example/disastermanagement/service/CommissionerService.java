@@ -9,11 +9,11 @@ public interface CommissionerService {
 
     List<CommissionerEntity> findAll();
 
-    Optional<CommissionerEntity> findById(int id);
+    Optional<CommissionerEntity> findById(String id);
 
     void addCommissioner(CommissionerEntity commissionerEntity);
 
-    void updateCommissioner(int id,CommissionerEntity commissionerEntity);
+    void updateCommissioner(CommissionerEntity commissionerEntity);
 
     void deleteCommissioner(int id);
 }
