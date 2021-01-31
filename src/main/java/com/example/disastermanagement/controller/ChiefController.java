@@ -3,6 +3,7 @@ package com.example.disastermanagement.controller;
 import com.example.disastermanagement.models.ChiefEntity;
 import com.example.disastermanagement.service.ChiefService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +26,9 @@ public class ChiefController {
     }
 
     @GetMapping("/chiefs/{id}")
-    public Optional<ChiefEntity> getChiefById(@PathVariable String id){
-        return chiefService.findById(id);
+    public ResponseEntity<String> getChiefById(@PathVariable String id){
+        Optional<ChiefEntity> chief = chiefService.findById(id);
+        return ResponseEntity.ok(chief.get().getPassword());
     }
 
     @PostMapping("/register-chief")

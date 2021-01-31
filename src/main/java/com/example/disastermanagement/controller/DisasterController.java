@@ -2,6 +2,7 @@ package com.example.disastermanagement.controller;
 
 import com.example.disastermanagement.models.DisasterEntity;
 import com.example.disastermanagement.service.DisasterService;
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,6 +47,7 @@ public class DisasterController {
     @PostMapping(value = "/add-disaster", consumes = {   "multipart/form-data" })
     @ResponseBody
     public void addProduct(@RequestParam("imageFile") MultipartFile[] imageFiles, @RequestPart("disasterEntity") DisasterEntity disasterEntity) throws IOException {
+        System.out.println(disasterEntity.toString());
         disasterService.addDisaster(imageFiles,disasterEntity);
     }
 }

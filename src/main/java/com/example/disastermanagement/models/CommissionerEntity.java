@@ -36,7 +36,6 @@ public class CommissionerEntity {
         this.id = id;
     }
 
-
     public String getF_name() {
         return f_name;
     }
