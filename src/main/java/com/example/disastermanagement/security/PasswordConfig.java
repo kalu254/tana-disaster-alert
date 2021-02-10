@@ -1,4 +1,4 @@
-package com.example.disastermanagement.config;
+package com.example.disastermanagement.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
