@@ -1,6 +1,8 @@
 package com.example.disastermanagement.models;
 
+import com.example.disastermanagement.security.ApplicationUserRole;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -18,7 +20,7 @@ public class ApplicationUser implements UserDetails {
 
     public ApplicationUser(String username,
                            String password,
-                           Set<? extends GrantedAuthority> grantedAuthorities,
+                           Set<SimpleGrantedAuthority> grantedAuthorities,
                            boolean isAccountNonExpired,
                            boolean isAccountNonLocked,
                            boolean isCredentialsNonExpired,

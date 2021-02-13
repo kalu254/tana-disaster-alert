@@ -1,19 +1,21 @@
 package com.example.disastermanagement.service;
 
-import com.example.disastermanagement.models.ChiefEntity;
+import com.example.disastermanagement.models.User;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ChiefService {
 
-    List<ChiefEntity> findAll();
+    List<User> findAll();
 
-    Optional<ChiefEntity> findById(String id);
+    Optional<User> findById(Integer id);
 
-    void addChief(ChiefEntity chiefEntity);
+    Optional<User> findByUsername(String username);
 
-    void updateChief(int id,ChiefEntity chiefEntity);
+    void addChief(User user);
+
+    void updateChief(int id, User user);
 
     void deleteChief(int id);
 }

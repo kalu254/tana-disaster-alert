@@ -1,11 +1,8 @@
 package com.example.disastermanagement.service;
 
-import com.example.disastermanagement.models.ApplicationUser;
-import com.example.disastermanagement.models.ChiefEntity;
-import com.example.disastermanagement.repository.ChiefRepository;
+import com.example.disastermanagement.models.User;
+import com.example.disastermanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,39 +12,44 @@ import java.util.Optional;
 @Service
 public class ChiefServiceImpl implements ChiefService {
 
-    private final ChiefRepository chiefRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ChiefServiceImpl(ChiefRepository chiefRepository) {
-        this.chiefRepository = chiefRepository;
+    public ChiefServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public List<ChiefEntity> findAll() {
-        return chiefRepository.findAll();
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
-    public Optional<ChiefEntity> findById(String id) {
-        return Optional.ofNullable(chiefRepository.findChiefById(id)
+    public Optional<User> findById(Integer id) {
+        return Optional.ofNullable(userRepository.findById(id)
             .orElseThrow(() ->
                 new UsernameNotFoundException(String.format("Username %s not found", id))
             ));
     }
 
     @Override
-    public void addChief(ChiefEntity chiefEntity) {
-        chiefRepository.saveAndFlush(chiefEntity);
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findUserByUsername(username);
     }
 
     @Override
-    public void updateChief(int id, ChiefEntity chiefEntity) {
-        chiefRepository.save(chiefEntity);
+    public void addChief(User user) {
+        userRepository.saveAndFlush(user);
+    }
+
+    @Override
+    public void updateChief(int id, User user) {
+        userRepository.save(user);
     }
 
     @Override
     public void deleteChief(int id) {
-        chiefRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
 

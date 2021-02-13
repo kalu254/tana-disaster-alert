@@ -1,12 +1,5 @@
 package com.example.disastermanagement.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -36,7 +29,7 @@ public class DisasterEntity {
     private String disaster_img_url_four;
     @ManyToOne
     @JoinColumn(name = "chief_service_id")
-    private ChiefEntity chief;
+    private User chief;
 
 
     public DisasterEntity() {
@@ -111,11 +104,11 @@ public class DisasterEntity {
         this.disaster_img_url_four = disaster_img_url_four;
     }
 
-    public ChiefEntity getChief() {
+    public User getChief() {
         return chief;
     }
 
-    public void setChief(ChiefEntity chief) {
+    public void setChief(User chief) {
         this.chief = chief;
     }
 

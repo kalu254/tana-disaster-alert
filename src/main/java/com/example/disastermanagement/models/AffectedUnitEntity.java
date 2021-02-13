@@ -26,7 +26,7 @@ public class AffectedUnitEntity {
     private DisasterEntity disasterEntity;
     @OneToOne
     @JoinColumn(name = "chief_service_id")
-    private ChiefEntity chief;
+    private User chief;
 
     public AffectedUnitEntity() {
     }
@@ -104,11 +104,11 @@ public class AffectedUnitEntity {
         this.disasterEntity = disasterEntity;
     }
 
-    public ChiefEntity getChief() {
+    public User getChief() {
         return chief;
     }
 
-    public void setChief(ChiefEntity chief) {
+    public void setChief(User chief) {
         this.chief = chief;
     }
 
