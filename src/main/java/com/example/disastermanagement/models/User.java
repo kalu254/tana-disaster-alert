@@ -17,22 +17,24 @@ public class User {
     private String lName;
     @Column(name = "email_address")
     private String emailAddress;
+    @Column(name = "administrative_rank")
+    private String administrativeRank;
     @Column(name = "region_level")
     private String regionLevel;
     @Column
     private String region;
     @Column(name = "phone_number")
     private int phoneNumber;
-
     @Column
     private String password;
 
-    public User(Integer id, String username, String fName, String lName, String emailAddress, String regionLevel, String region, int phoneNumber, String password) {
+    public User(Integer id, String username, String fName, String lName, String emailAddress, String administrativeRank, String regionLevel, String region, int phoneNumber, String password) {
         this.id = id;
         this.username = username;
         this.fName = fName;
         this.lName = lName;
         this.emailAddress = emailAddress;
+        this.administrativeRank = administrativeRank;
         this.regionLevel = regionLevel;
         this.region = region;
         this.phoneNumber = phoneNumber;
@@ -82,6 +84,14 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
+    public String getAdministrativeRank() {
+        return administrativeRank;
+    }
+
+    public void setAdministrativeRank(String administrativeRank) {
+        this.administrativeRank = administrativeRank;
+    }
+
     public String getRegionLevel() {
         return regionLevel;
     }
@@ -113,5 +123,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
