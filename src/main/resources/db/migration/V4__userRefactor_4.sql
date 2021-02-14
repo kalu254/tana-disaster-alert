@@ -13,4 +13,5 @@ CREATE TABLE IF NOT EXISTS user_table (
    region text not null,
    phone_number int not null,
    password varchar(300) not null
+
 );
