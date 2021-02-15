@@ -124,6 +124,17 @@
                     <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>6.4.4</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/disasters_db</url>
+                    <user>kalu</user>
+                    <password>kalu</password>
+                    <ignoreMissingMigrations>true</ignoreMissingMigrations>
+                </configuration>
+            </plugin>
 
 		</plugins>
 
