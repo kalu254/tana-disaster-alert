@@ -9,7 +9,7 @@ public class DisasterEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "disaster_id")
+    @Column
     private int id;
     @Column
     private LocalDate date_reported;
@@ -28,7 +28,7 @@ public class DisasterEntity {
     @Column
     private String disaster_img_url_four;
     @ManyToOne
-    @JoinColumn(name = "chief_service_id")
+    @JoinColumn(name = "id", insertable = false,updatable = false)
     private User chief;
 
 
@@ -39,6 +39,9 @@ public class DisasterEntity {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public LocalDate getDate_reported() {
         return date_reported;

@@ -132,7 +132,7 @@
                     <url>jdbc:postgresql://localhost:5432/disasters_db</url>
                     <user>kalu</user>
                     <password>kalu</password>
-                    <ignoreMissingMigrations>true</ignoreMissingMigrations>
+
                 </configuration>
             </plugin>
 

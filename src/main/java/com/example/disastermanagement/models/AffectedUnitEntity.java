@@ -7,8 +7,10 @@ import javax.persistence.*;
 public class AffectedUnitEntity {
 
     @Id
-    @Column(name = "id_no")
+    @Column
     private int id;
+    @Column
+    private int id_no;
     @Column
     private String f_name;
     @Column
@@ -22,15 +24,22 @@ public class AffectedUnitEntity {
     @Column
     private String village;
     @OneToOne
-    @JoinColumn(name = "disaster_id")
+    @JoinColumn(name = "id",insertable=false,updatable = false)
     private DisasterEntity disasterEntity;
     @OneToOne
-    @JoinColumn(name = "chief_service_id")
+    @JoinColumn(name = "username")
     private User chief;
 
     public AffectedUnitEntity() {
     }
 
+    public int getId_no() {
+        return id_no;
+    }
+
+    public void setId_no(int id_no) {
+        this.id_no = id_no;
+    }
 
     public int getId() {
         return id;
