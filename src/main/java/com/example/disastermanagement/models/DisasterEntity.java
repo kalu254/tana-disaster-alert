@@ -3,12 +3,12 @@ package com.example.disastermanagement.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "disaster_table")
+@Table(name = "disaster_table", schema = "public")
 @Entity
 public class DisasterEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column
     private int id;
     @Column
@@ -27,7 +27,8 @@ public class DisasterEntity {
     private String disaster_img_url_three;
     @Column
     private String disaster_img_url_four;
-    @ManyToOne
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "id", insertable = false,updatable = false)
     private User chief;
 
