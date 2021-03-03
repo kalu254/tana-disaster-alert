@@ -1,4 +1,4 @@
-DROP TABLE chief_table CASCADE;
+--DROP TABLE chief_table CASCADE;
 
 CREATE TABLE IF NOT EXISTS user_table (
    username    varchar(20)
