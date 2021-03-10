@@ -54,6 +54,5 @@ CREATE TABLE IF NOT EXISTS affected_unit_table (
 
 );
 
-INSERT INTO user_table (id,username,f_name,l_name,email_address,administration_level,region_level,region,phone_number,password)
-    VALUES(1,'kalu','Luka','Macharia','kaluarichama@gmail.com','Chief','Location','Kata Ndogo',746882415,1234);
+
 
