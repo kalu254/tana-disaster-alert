@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -6,7 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.example.disastermanagement.security.ApplicationUserPermission.*;
+import static com.kalu.tanareportdisaster.security.ApplicationUserPermission.*;
 
 
 public enum ApplicationUserRole {

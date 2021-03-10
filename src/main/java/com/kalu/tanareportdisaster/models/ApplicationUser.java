@@ -1,6 +1,5 @@
-package com.example.disastermanagement.models;
+package com.kalu.tanareportdisaster.models;
 
-import com.example.disastermanagement.security.ApplicationUserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

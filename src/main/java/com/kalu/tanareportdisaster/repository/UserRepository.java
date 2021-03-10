@@ -1,6 +1,6 @@
-package com.example.disastermanagement.repository;
+package com.kalu.tanareportdisaster.repository;
 
-import com.example.disastermanagement.models.User;
+import com.kalu.tanareportdisaster.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

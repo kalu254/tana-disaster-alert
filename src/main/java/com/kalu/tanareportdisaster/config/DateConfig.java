@@ -1,4 +1,4 @@
-package com.example.disastermanagement.config;
+package com.kalu.tanareportdisaster.config;
 
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;

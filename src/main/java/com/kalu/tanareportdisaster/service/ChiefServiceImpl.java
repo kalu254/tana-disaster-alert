@@ -1,7 +1,7 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.User;
-import com.example.disastermanagement.repository.UserRepository;
+import com.kalu.tanareportdisaster.models.User;
+import com.kalu.tanareportdisaster.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

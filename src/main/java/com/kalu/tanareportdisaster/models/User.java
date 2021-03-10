@@ -1,4 +1,7 @@
-package com.example.disastermanagement.models;
+package com.kalu.tanareportdisaster.models;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 
@@ -7,8 +10,16 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq")
-    @SequenceGenerator(name = "seq", sequenceName = "seq", initialValue = 1, allocationSize=1)
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+        name = "sequence-generator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+            @Parameter(name = "sequence_name", value = "user_sequence"),
+            @Parameter(name = "initial_value", value = "001"),
+            @Parameter(name = "increment_size", value = "1")
+        }
+    )
     @Column
     private Integer id;
     @Column
@@ -19,8 +30,8 @@ public class User {
     private String lName;
     @Column(name = "email_address")
     private String emailAddress;
-    @Column(name = "administrative_rank")
-    private String administrativeRank;
+    @Column(name = "administration_level")
+    private String administrativeLevel;
     @Column(name = "region_level")
     private String regionLevel;
     @Column
@@ -30,13 +41,13 @@ public class User {
     @Column
     private String password;
 
-    public User(Integer id, String username, String fName, String lName, String emailAddress, String administrativeRank, String regionLevel, String region, int phoneNumber, String password) {
+    public User(Integer id, String username, String fName, String lName, String emailAddress, String administrativeLevel, String regionLevel, String region, int phoneNumber, String password) {
         this.id = id;
         this.username = username;
         this.fName = fName;
         this.lName = lName;
         this.emailAddress = emailAddress;
-        this.administrativeRank = administrativeRank;
+        this.administrativeLevel = administrativeLevel;
         this.regionLevel = regionLevel;
         this.region = region;
         this.phoneNumber = phoneNumber;
@@ -86,12 +97,12 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public String getAdministrativeRank() {
-        return administrativeRank;
+    public String getAdministrativeLevel() {
+        return administrativeLevel;
     }
 
-    public void setAdministrativeRank(String administrativeRank) {
-        this.administrativeRank = administrativeRank;
+    public void setAdministrativeLevel(String administrativeLevel) {
+        this.administrativeLevel = administrativeLevel;
     }
 
     public String getRegionLevel() {

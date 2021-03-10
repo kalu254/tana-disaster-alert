@@ -1,6 +1,8 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.AffectedUnitEntity;
+
+import com.kalu.tanareportdisaster.models.AffectedUnitEntity;
+
 import java.util.List;
 import java.util.Optional;
 

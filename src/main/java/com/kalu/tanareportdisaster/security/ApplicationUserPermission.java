@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 public enum ApplicationUserPermission {
     DISASTER_READ("disaster:read"),

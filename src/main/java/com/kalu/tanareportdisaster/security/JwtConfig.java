@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 import com.google.common.net.HttpHeaders;
 import org.springframework.boot.context.properties.ConfigurationProperties;

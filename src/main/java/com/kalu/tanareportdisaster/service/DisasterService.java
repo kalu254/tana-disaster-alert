@@ -1,6 +1,6 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.DisasterEntity;
+import com.kalu.tanareportdisaster.models.DisasterEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

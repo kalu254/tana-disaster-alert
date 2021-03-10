@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 import com.google.common.base.Strings;
 import io.jsonwebtoken.Claims;

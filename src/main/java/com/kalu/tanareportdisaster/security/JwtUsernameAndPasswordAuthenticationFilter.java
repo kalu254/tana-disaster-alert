@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;

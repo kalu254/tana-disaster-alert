@@ -1,6 +1,7 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.User;
+
+import com.kalu.tanareportdisaster.models.User;
 
 import java.util.List;
 import java.util.Optional;

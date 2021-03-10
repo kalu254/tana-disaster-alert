@@ -1,4 +1,4 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
 public class UsernameAndPasswordAuthenticationRequest {
 

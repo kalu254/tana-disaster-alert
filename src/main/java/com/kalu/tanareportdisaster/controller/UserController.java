@@ -1,7 +1,7 @@
-package com.example.disastermanagement.controller;
+package com.kalu.tanareportdisaster.controller;
 
-import com.example.disastermanagement.models.User;
-import com.example.disastermanagement.service.ChiefService;
+import com.kalu.tanareportdisaster.models.User;
+import com.kalu.tanareportdisaster.service.ChiefService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

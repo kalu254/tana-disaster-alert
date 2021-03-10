@@ -1,7 +1,7 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.AffectedUnitEntity;
-import com.example.disastermanagement.repository.AffectedUnitRepository;
+import com.kalu.tanareportdisaster.models.AffectedUnitEntity;
+import com.kalu.tanareportdisaster.repository.AffectedUnitRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.example.disastermanagement.security;
+package com.kalu.tanareportdisaster.security;
 
-import com.example.disastermanagement.service.ApplicationUserService;
+import com.kalu.tanareportdisaster.service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.crypto.SecretKey;
 
-import static com.example.disastermanagement.security.ApplicationUserRole.CHIEF;
+import static com.kalu.tanareportdisaster.security.ApplicationUserRole.*;
+
 
 @Configuration
 @EnableWebSecurity

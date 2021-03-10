@@ -1,17 +1,15 @@
-package com.example.disastermanagement.service;
+package com.kalu.tanareportdisaster.service;
 
-import com.example.disastermanagement.models.ApplicationUser;
-import com.example.disastermanagement.models.User;
-import com.example.disastermanagement.security.ApplicationUserRole;
+import com.kalu.tanareportdisaster.models.ApplicationUser;
+import com.kalu.tanareportdisaster.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.Optional;
-import java.util.Set;
 
-import static com.example.disastermanagement.security.ApplicationUserRole.*;
+import static com.kalu.tanareportdisaster.security.ApplicationUserRole.CHIEF;
+
 
 @Service
 public class ApplicationUserServiceImpl implements ApplicationUserDao {

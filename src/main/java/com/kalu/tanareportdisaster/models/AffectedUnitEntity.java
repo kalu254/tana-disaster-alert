@@ -1,4 +1,7 @@
-package com.example.disastermanagement.models;
+package com.kalu.tanareportdisaster.models;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 
@@ -7,8 +10,16 @@ import javax.persistence.*;
 public class AffectedUnitEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq")
-    @SequenceGenerator(name = "seq", sequenceName = "seq", initialValue = 1, allocationSize=1)
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+        name = "sequence-generator",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {
+            @Parameter(name = "sequence_name", value = "affected_unit_sequence"),
+            @Parameter(name = "initial_value", value = "1"),
+            @Parameter(name = "increment_size", value = "1")
+        }
+    )
     @Column
     private int id;
     @Column
@@ -30,7 +41,7 @@ public class AffectedUnitEntity {
     private DisasterEntity disasterEntity;
     @OneToOne
     @JoinColumn(name = "username")
-    private User chief;
+    private User user;
 
     public AffectedUnitEntity() {
     }
@@ -115,12 +126,12 @@ public class AffectedUnitEntity {
         this.disasterEntity = disasterEntity;
     }
 
-    public User getChief() {
-        return chief;
+    public User getUser() {
+        return user;
     }
 
-    public void setChief(User chief) {
-        this.chief = chief;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -134,7 +145,7 @@ public class AffectedUnitEntity {
             ", children_under_five=" + children_under_five +
             ", village='" + village + '\'' +
             ", disaster=" + disasterEntity +
-            ", chief=" + chief +
+            ", chief=" + user +
             '}';
     }
 }

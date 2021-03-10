@@ -1,8 +1,7 @@
-package com.example.disastermanagement.controller;
+package com.kalu.tanareportdisaster.controller;
 
-import com.example.disastermanagement.models.DisasterEntity;
-import com.example.disastermanagement.service.DisasterService;
-import org.apache.commons.logging.Log;
+import com.kalu.tanareportdisaster.models.DisasterEntity;
+import com.kalu.tanareportdisaster.service.DisasterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
