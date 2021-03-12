@@ -4,6 +4,7 @@ import com.kalu.tanareportdisaster.service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.crypto.SecretKey;
 
-import static com.kalu.tanareportdisaster.security.ApplicationUserRole.*;
+import static com.kalu.tanareportdisaster.models.ApplicationUserRole.*;
 
 
 @Configuration
@@ -45,8 +46,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
             .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
             .addFilterAfter(new JwtTokenVerifier(secretKey, jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
             .authorizeRequests()
-            .antMatchers("/", "index", "/css/*", "/js/*","/disaster_images/*").permitAll()
-            .antMatchers("/api/**").hasRole(CHIEF.name())
+            .antMatchers("/", "index", "/css/*", "/js/*","/disaster_images/*","/api/auth/*").permitAll()
+            .antMatchers("/api/V1/**").hasRole(CHIEF.name())
             .anyRequest()
             .authenticated();
     }
@@ -64,5 +65,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         provider.setPasswordEncoder(passwordEncoder);
         provider.setUserDetailsService(applicationUserService);
         return provider;
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

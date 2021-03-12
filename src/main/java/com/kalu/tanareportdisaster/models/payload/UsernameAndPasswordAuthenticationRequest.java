@@ -1,4 +1,4 @@
-package com.kalu.tanareportdisaster.security;
+package com.kalu.tanareportdisaster.models.payload;
 
 public class UsernameAndPasswordAuthenticationRequest {
 

@@ -9,7 +9,9 @@ import java.util.Set;
 
 public class ApplicationUser implements UserDetails {
 
-    private final String username;
+    private Integer id;
+    private String username;
+    private String email;
     private final String password;
     private final Set<? extends GrantedAuthority> grantedAuthorities;
     private final boolean isAccountNonExpired;
@@ -17,20 +19,48 @@ public class ApplicationUser implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
-    public ApplicationUser(String username,
-                           String password,
-                           Set<SimpleGrantedAuthority> grantedAuthorities,
-                           boolean isAccountNonExpired,
-                           boolean isAccountNonLocked,
-                           boolean isCredentialsNonExpired,
-                           boolean isEnabled) {
+    public ApplicationUser(
+        Integer id,
+        String username,
+        String email, String password,
+        Set<SimpleGrantedAuthority> grantedAuthorities,
+        boolean isAccountNonExpired,
+        boolean isAccountNonLocked,
+        boolean isCredentialsNonExpired,
+        boolean isEnabled) {
+        this.id = id;
         this.username = username;
+        this.email = email;
         this.password = password;
         this.grantedAuthorities = grantedAuthorities;
         this.isAccountNonExpired = isAccountNonExpired;
         this.isAccountNonLocked = isAccountNonLocked;
         this.isCredentialsNonExpired = isCredentialsNonExpired;
         this.isEnabled = isEnabled;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<? extends GrantedAuthority> getGrantedAuthorities() {
+        return grantedAuthorities;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.kalu.tanareportdisaster.security;
+package com.kalu.tanareportdisaster.models;
 
 public enum ApplicationUserPermission {
     DISASTER_READ("disaster:read"),

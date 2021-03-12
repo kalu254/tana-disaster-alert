@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name = "user_table")
 @Entity
@@ -29,7 +31,7 @@ public class User {
     @Column(name = "l_name")
     private String lName;
     @Column(name = "email_address")
-    private String emailAddress;
+    private String email;
     @Column(name = "administration_level")
     private String administrativeLevel;
     @Column(name = "region_level")
@@ -40,22 +42,32 @@ public class User {
     private int phoneNumber;
     @Column
     private String password;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<>();
+    @Transient
+    private Set<String> role;
 
-    public User(Integer id, String username, String fName, String lName, String emailAddress, String administrativeLevel, String regionLevel, String region, int phoneNumber, String password) {
-        this.id = id;
+
+    public User(String username, String fName, String lName, String email, String administrativeLevel, String regionLevel, String region, int phoneNumber, String password, Set<String> role) {
         this.username = username;
         this.fName = fName;
         this.lName = lName;
-        this.emailAddress = emailAddress;
+        this.email = email;
         this.administrativeLevel = administrativeLevel;
         this.regionLevel = regionLevel;
         this.region = region;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.role = role;
     }
+
 
     public User() {
     }
+
 
     public Integer getId() {
         return id;
@@ -89,12 +101,12 @@ public class User {
         this.lName = lName;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAdministrativeLevel() {
@@ -135,5 +147,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
+    public Set<String> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<String> role) {
+        this.role = role;
     }
 }

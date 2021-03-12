@@ -26,9 +26,9 @@ public class UserController {
     }
 
     @GetMapping("/chiefs/{id}")
-    public ResponseEntity<String> getChiefById(@PathVariable Integer id){
-        Optional<User> chief = chiefService.findById(id);
-        return ResponseEntity.ok(chief.get().getPassword());
+    public ResponseEntity<User> getChiefById(@PathVariable Integer id){
+        Optional<User> user = chiefService.findById(id);
+        return ResponseEntity.ok(user.get());
     }
 
     @PostMapping("/register-chief")

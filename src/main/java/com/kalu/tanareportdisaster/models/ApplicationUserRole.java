@@ -1,4 +1,4 @@
-package com.kalu.tanareportdisaster.security;
+package com.kalu.tanareportdisaster.models;
 
 import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -6,12 +6,16 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.kalu.tanareportdisaster.security.ApplicationUserPermission.*;
+import static com.kalu.tanareportdisaster.models.ApplicationUserPermission.*;
 
 
 public enum ApplicationUserRole {
     CHIEF(Sets.newHashSet(DISASTER_READ,DISASTER_WRITE,COMMISSIONER_READ)),
-    COMMISSIONER(Sets.newHashSet(DISASTER_READ,DISASTER_WRITE,CHIEF_READ,CHIEF_WRITE,COMMISSIONER_READ,COMMISSIONER_WRITE));
+    COMMISSIONER(Sets.newHashSet(DISASTER_READ,DISASTER_WRITE,CHIEF_READ,CHIEF_WRITE,COMMISSIONER_READ,COMMISSIONER_WRITE)),
+    ADMIN(Sets.newHashSet(DISASTER_READ,DISASTER_WRITE,COMMISSIONER_READ,DISASTER_READ,DISASTER_WRITE,CHIEF_READ,CHIEF_WRITE,COMMISSIONER_READ,COMMISSIONER_WRITE));
+
+
+
 
     private final Set<ApplicationUserPermission> permissions;
 

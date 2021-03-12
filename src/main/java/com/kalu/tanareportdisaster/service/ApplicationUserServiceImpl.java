@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.kalu.tanareportdisaster.security.ApplicationUserRole.CHIEF;
+import static com.kalu.tanareportdisaster.models.ApplicationUserRole.CHIEF;
 
 
 @Service
@@ -28,16 +28,11 @@ public class ApplicationUserServiceImpl implements ApplicationUserDao {
 
     @Override
     public Optional<ApplicationUser> selectApplicationUserByUsername(String username) {
-//        return Optional.of(new ApplicationUser("kalu",
-//            passwordEncoder.encode("pass"),
-//            CHIEF.getGrantedAuthorities(),
-//            true,
-//            true,
-//            true,
-//            true));
 
         User user = chiefService.findByUsername(username).get();
         applicationUser = new ApplicationUser(
+            user.getId(),
+            user.getEmail(),
             user.getUsername(),
             passwordEncoder.encode(user.getPassword()),
             CHIEF.getGrantedAuthorities(),

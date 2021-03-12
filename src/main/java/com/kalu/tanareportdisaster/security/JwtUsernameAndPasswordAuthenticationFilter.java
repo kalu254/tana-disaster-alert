@@ -1,6 +1,7 @@
 package com.kalu.tanareportdisaster.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kalu.tanareportdisaster.models.payload.UsernameAndPasswordAuthenticationRequest;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
