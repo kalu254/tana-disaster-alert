@@ -1,22 +1,35 @@
 package com.kalu.tanareportdisaster.security;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kalu.tanareportdisaster.models.ApplicationUser;
+import com.kalu.tanareportdisaster.models.payload.UsernameAndPasswordAuthenticationRequest;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
 @Component
-public class JwtUtils {
+public class JwtUtils{
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
+
+    @Autowired
+    AuthenticationManager authenticationManager;
 
     private final JwtConfig jwtConfig;
     private final SecretKey secretKey;
@@ -60,4 +73,5 @@ public class JwtUtils {
 
         return false;
     }
+
 }

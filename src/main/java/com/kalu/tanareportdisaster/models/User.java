@@ -24,7 +24,7 @@ public class User {
     )
     @Column
     private Integer id;
-    @Column
+    @Column(name = "username")
     private String username;
     @Column(name = "f_name")
     private String fName;

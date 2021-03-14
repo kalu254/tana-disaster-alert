@@ -32,8 +32,8 @@ public class ApplicationUserServiceImpl implements ApplicationUserDao {
         User user = chiefService.findByUsername(username).get();
         applicationUser = new ApplicationUser(
             user.getId(),
-            user.getEmail(),
             user.getUsername(),
+            user.getEmail(),
             passwordEncoder.encode(user.getPassword()),
             CHIEF.getGrantedAuthorities(),
             true,

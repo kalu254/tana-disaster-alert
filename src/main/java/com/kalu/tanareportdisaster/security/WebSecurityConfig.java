@@ -12,52 +12,48 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.crypto.SecretKey;
 
-import static com.kalu.tanareportdisaster.models.ApplicationUserRole.*;
-
+import static com.kalu.tanareportdisaster.models.ApplicationUserRole.CHIEF;
 
 @Configuration
 @EnableWebSecurity
-public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final ApplicationUserService applicationUserService;
     private final PasswordEncoder passwordEncoder;
-    private final SecretKey secretKey;
+    private final AuthEntryPointJwt unauthorizedHandler;
+
     private final JwtConfig jwtConfig;
+    private final SecretKey secretKey;
 
     @Autowired
-    public ApplicationSecurityConfig(ApplicationUserService applicationUserService, PasswordEncoder passwordEncoder, SecretKey secretKey, JwtConfig jwtConfig) {
+    public WebSecurityConfig(ApplicationUserService applicationUserService, PasswordEncoder passwordEncoder, AuthEntryPointJwt unauthorizedHandler, JwtConfig jwtConfig, SecretKey secretKey) {
         this.applicationUserService = applicationUserService;
         this.passwordEncoder = passwordEncoder;
-        this.secretKey = secretKey;
+        this.unauthorizedHandler = unauthorizedHandler;
         this.jwtConfig = jwtConfig;
+        this.secretKey = secretKey;
     }
 
+    @Bean
+    public AuthTokenFilter authenticationJwtTokenFilter() {
+        return new AuthTokenFilter(jwtConfig, secretKey);
+    }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
-            .addFilterAfter(new JwtTokenVerifier(secretKey, jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
-            .authorizeRequests()
-            .antMatchers("/", "index", "/css/*", "/js/*","/disaster_images/*","/auth/*").permitAll()
-            .antMatchers("/api/V1/**").hasRole(CHIEF.name())
-            .anyRequest()
-            .authenticated();
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.authenticationProvider(daoAuthenticationProvider());
     }
 
-
-
+    @Bean
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
+
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
@@ -68,8 +64,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .authorizeRequests().antMatchers("/", "index", "/css/*", "/js/*","/disaster_images/*","/auth/*").permitAll()
+            .antMatchers("/api/V1/**").hasRole(CHIEF.name())
+            .anyRequest().authenticated();
+
+        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

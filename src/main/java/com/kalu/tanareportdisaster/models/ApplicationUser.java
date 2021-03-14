@@ -55,13 +55,6 @@ public class ApplicationUser implements UserDetails {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Set<? extends GrantedAuthority> getGrantedAuthorities() {
-        return grantedAuthorities;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
