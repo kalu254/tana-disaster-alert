@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -58,15 +59,14 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UsernameAndPasswordAuthenticationRequest usernameAndPasswordAuthenticationRequest) {
 
-        Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(usernameAndPasswordAuthenticationRequest.getUsername(), usernameAndPasswordAuthenticationRequest.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(usernameAndPasswordAuthenticationRequest.getUsername(), usernameAndPasswordAuthenticationRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         ApplicationUser userDetails = (ApplicationUser) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream()
-            .map(item -> item.getAuthority())
+            .map(GrantedAuthority::getAuthority)
             .collect(Collectors.toList());
 
         return ResponseEntity.ok(new JwtResponse(jwt,

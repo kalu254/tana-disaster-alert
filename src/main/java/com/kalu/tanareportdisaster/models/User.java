@@ -32,8 +32,8 @@ public class User {
     private String lName;
     @Column(name = "email_address")
     private String email;
-    @Column(name = "administration_level")
-    private String administrativeLevel;
+    @Column(name = "administrative_rank")
+    private String administrativeRank;
     @Column(name = "region_level")
     private String regionLevel;
     @Column
@@ -56,7 +56,7 @@ public class User {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
-        this.administrativeLevel = administrativeLevel;
+        this.administrativeRank = administrativeLevel;
         this.regionLevel = regionLevel;
         this.region = region;
         this.phoneNumber = phoneNumber;
@@ -110,11 +110,11 @@ public class User {
     }
 
     public String getAdministrativeLevel() {
-        return administrativeLevel;
+        return administrativeRank;
     }
 
     public void setAdministrativeLevel(String administrativeLevel) {
-        this.administrativeLevel = administrativeLevel;
+        this.administrativeRank = administrativeLevel;
     }
 
     public String getRegionLevel() {

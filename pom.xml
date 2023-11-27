@@ -141,7 +141,6 @@
 
                 </configuration>
             </plugin>
-
         </plugins>
 
     </build>
