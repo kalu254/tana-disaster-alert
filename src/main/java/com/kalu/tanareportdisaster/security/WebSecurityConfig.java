@@ -49,6 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new AuthTokenFilter(jwtConfig, secretKey);
     }
 
+    /**
+     * The first line disables csrf
+     */
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         getHttp().cors().and().csrf().disable();
