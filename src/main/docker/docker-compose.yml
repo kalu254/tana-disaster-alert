@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  app:
+    container_name: "app"
+    image: "disaster-response"
+    build: ../../..
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/disasters_db
+        - SPRING_DATASOURCE_USERNAME=postgres
+#        - SPRING_DATASOURCE_PASSWORD=
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=
+
