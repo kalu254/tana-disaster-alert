@@ -9,9 +9,9 @@ services:
     depends_on:
       - db
     environment:
-        - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/disasters_db
-        - SPRING_DATASOURCE_USERNAME=postgres
-#        - SPRING_DATASOURCE_PASSWORD=
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}
+        - SPRING_DATASOURCE_USERNAME=${PROD_DB_USERNAME}
+        - SPRING_DATASOURCE_PASSWORD=${PROD_DB_PASSWORD}
         - SPRING_JPA_HIBERNATE_DDL_AUTO=update
   db:
     image: postgres
@@ -19,6 +19,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=postgres
-#      - POSTGRES_PASSWORD=
+      - POSTGRES_USER=${PROD_DB_USERNAME}
+      - POSTGRES_PASSWORD=${PROD_DB_PASSWORD}
 
