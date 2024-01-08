@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Table(name = "user_table")
+@Table(name = "app_user_table")
 @Entity
 public class User {
 
@@ -26,11 +26,11 @@ public class User {
     private Integer id;
     @Column(name = "username")
     private String username;
-    @Column(name = "f_name")
+    @Column(name = "first_name")
     private String fName;
-    @Column(name = "l_name")
+    @Column(name = "last_name")
     private String lName;
-    @Column(name = "email_address")
+    @Column(name = "email")
     private String email;
     @Column(name = "administrative_rank")
     private String administrativeRank;
@@ -51,12 +51,12 @@ public class User {
     private Set<String> role;
 
 
-    public User(String username, String fName, String lName, String email, String administrativeLevel, String regionLevel, String region, int phoneNumber, String password, Set<String> role) {
+    public User(String username, String fName, String lName, String email, String administrativeRank, String regionLevel, String region, int phoneNumber, String password, Set<String> role) {
         this.username = username;
         this.fName = fName;
         this.lName = lName;
         this.email = email;
-        this.administrativeRank = administrativeLevel;
+        this.administrativeRank = administrativeRank;
         this.regionLevel = regionLevel;
         this.region = region;
         this.phoneNumber = phoneNumber;
