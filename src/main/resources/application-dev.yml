@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/disasters_db
+    username: postgres
+    password: kalu
+
+  sql:
+    init:
+      mode: always
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+
+application:
+  jwt:
+    secret-key: securesecuresecuresecuresecuresecuresecuresecuresecuresecuresecure
+    token-prefix: Bearer
+    token-expiration-after-days: 10

@@ -1,0 +1,19 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+
+info:
+  application:
+    name: disaster-alert
+    description: Monitor disaster effects
+    author: Kalu Arichama
+    version: '@project.version@'
+spring:
+  profiles:
+    active: dev
