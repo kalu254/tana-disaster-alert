@@ -63,3 +63,6 @@ CREATE TABLE IF NOT EXISTS roles_table
 -- INSERT INTO roles_table(name) VALUES('ADMIN');
 -- INSERT INTO roles_table(name) VALUES('COMMISSIONER');
 -- INSERT INTO roles_table(name) VALUES('CHIEF');
+
+INSERT INTO app_user_table (id,username,first_name,last_name,email,administrative_rank,region_level,region,phone_number,password)
+VALUES(000,'kalu','Luka','Macharia','kaluarichama@gmail.com','ADMIN','Located','Nairobi',746882415,1234);
