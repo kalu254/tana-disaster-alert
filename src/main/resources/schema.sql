@@ -56,13 +56,10 @@ CREATE TABLE IF NOT EXISTS roles_table
     name varchar(50) not null
 );
 
--- CREATE SEQUENCE user_sequence;
--- CREATE SEQUENCE disaster_sequence;
--- CREATE SEQUENCE affected_unit_sequence;
 
 -- INSERT INTO roles_table(name) VALUES('ADMIN');
 -- INSERT INTO roles_table(name) VALUES('COMMISSIONER');
 -- INSERT INTO roles_table(name) VALUES('CHIEF');
 
-INSERT INTO app_user_table (id,username,first_name,last_name,email,administrative_rank,region_level,region,phone_number,password)
-VALUES(000,'kalu','Luka','Macharia','kaluarichama@gmail.com','ADMIN','Located','Nairobi',746882415,1234);
+INSERT INTO app_user_table (username,first_name,last_name,email,administrative_rank,region_level,region,phone_number,password)
+VALUES('kalu','Luka','Macharia','kaluarichama@gmail.com','ADMIN','Located','Nairobi',746882415,1234);
