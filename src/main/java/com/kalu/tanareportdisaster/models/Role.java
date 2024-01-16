@@ -11,6 +11,7 @@ public class Role {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
     private ApplicationUserRole name;
 
     public Role() {

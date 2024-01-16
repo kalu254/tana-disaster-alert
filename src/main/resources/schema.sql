@@ -53,13 +53,12 @@ CREATE TABLE IF NOT EXISTS user_roles_table
 CREATE TABLE IF NOT EXISTS roles_table
 (
     id SERIAL constraint roles_table_pk PRIMARY KEY,
-    name varchar(50) not null
+    user_role varchar(50) not null
 );
 
+INSERT INTO app_user_table (username,first_name,last_name,email,administrative_rank,region_level,region,phone_number,password)
+VALUES('kalu','Luka','Macharia','kaluarichama@gmail.com','ADMIN','Located','Nairobi',746882415,1234);
 
--- INSERT INTO roles_table(name) VALUES('ADMIN');
--- INSERT INTO roles_table(name) VALUES('COMMISSIONER');
--- INSERT INTO roles_table(name) VALUES('CHIEF');
-
--- INSERT INTO app_user_table (username,first_name,last_name,email,administrative_rank,region_level,region,phone_number,password)
--- VALUES('kalu','Luka','Macharia','kaluarichama@gmail.com','ADMIN','Located','Nairobi',746882415,1234);
+INSERT INTO roles_table(user_role) VALUES('ADMIN');
+INSERT INTO roles_table(user_role) VALUES('COMMISSIONER');
+INSERT INTO roles_table(user_role) VALUES('CHIEF');
